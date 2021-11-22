@@ -1,0 +1,270 @@
+{
+    "title": "Robin's Personal Azerty Shortcuts",
+    "rules": [
+        {
+            "description": "Control A, C, V, X, F, S, N, Z, W, T",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("q", ["control"], ["any"]) %>,
+                    "to": <%= to([["q", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("c", ["control"], ["any"]) %>,
+                    "to": <%= to([["c", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("v", ["control"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("x", ["control"], ["any"]) %>,
+                    "to": <%= to([["x", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f", ["control"], ["any"]) %>,
+                    "to": <%= to([["f", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("s", ["control"], ["any"]) %>,
+                    "to": <%= to([["s", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("n", ["control"], ["any"]) %>,
+                    "to": <%= to([["n", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("z", ["control"], ["any"]) %>,
+                    "to": <%= to([["z", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("w", ["control"], ["any"]) %>,
+                    "to": <%= to([["w", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("t", ["control"], ["any"]) %>,
+                    "to": <%= to([["t", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Control R, F5",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("r", ["control"], ["any"]) %>,
+                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("f5", [], ["any"]) %>,
+                    "to": <%= to([["r", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Alt Tab",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("tab", ["option"], ["any"]) %>,
+                    "to": <%= to([["tab", ["left_command"]]]) %>
+                }
+            ]
+        },    
+        {
+            "description": "PrtScn, Shift PrtScn",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", ["shift"], ["any"]) %>,
+                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": <%= to([["3", ["left_command", "left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },  
+        {
+            "description": "Alt F4",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("f4", ["option"], []) %>,
+                    "to": <%= to([["a", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },        
+        {
+            "description": "Home",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("home", [], []) %>,
+                    "to": <%= to([["mission_control", []]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Alt Space",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("spacebar", ["option"], []) %>,
+                    "to": <%= to([["spacebar", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Shift Alt T",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("t", ["shift", "option"], []) %>,
+                    "to": {
+                        "shell_command": "open -a iTerm.app -n"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Period",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_period", [], []) %>,
+                    "to": <%= to([["keypad_period", ["left_shift"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Browser zoom",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("hyphen", ["control"], ["any"]) %>,
+                    "to": <%= to([["hyphen", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_hyphen", ["control"], ["any"]) %>,
+                    "to": <%= to([["keypad_hyphen", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("equal_sign", ["control"], ["any"]) %>,
+                    "to": <%= to([["equal_sign", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_plus", ["control"], ["any"]) %>,
+                    "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("slash", ["control"], ["any"]) %>,
+                    "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("0", ["control"], ["any"]) %>,
+                    "to": <%= to([["0", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_0", ["control"], ["any"]) %>,
+                    "to": <%= to([["keypad_0", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["browser"]) %>
+                    ]
+                }
+            ]
+        }
+    ]
+}

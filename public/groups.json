@@ -265,6 +265,9 @@
           "path": "json/pc_shortcuts.json"
         },
         {
+          "path": "json/robin.json"
+        },
+        {
           "path": "json/pok3r-escape.json"
         },
         {
