@@ -116,28 +116,7 @@
                     "to": <%= to([["tab", ["left_command"]]]) %>
                 }
             ]
-        },    
-        {
-            "description": "PrtScn, Shift PrtScn",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": <%= from("print_screen", ["shift"], ["any"]) %>,
-                    "to": <%= to([["4", ["left_command", "left_shift"]]]) %>,
-                    "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
-                    ]
-                },
-                {
-                    "type": "basic",
-                    "from": <%= from("print_screen", [], ["any"]) %>,
-                    "to": <%= to([["3", ["left_command", "left_shift"]]]) %>,
-                    "conditions": [
-                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
-                    ]
-                }
-            ]
-        },  
+        },
         {
             "description": "Alt F4",
             "manipulators": [
@@ -184,7 +163,7 @@
                     "type": "basic",
                     "from": <%= from("t", ["shift", "option"], []) %>,
                     "to": {
-                        "shell_command": "open -a iTerm.app -n"
+                        "shell_command": "open -a iTerm"
                     },
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
@@ -213,7 +192,7 @@
                     "from": <%= from("hyphen", ["control"], ["any"]) %>,
                     "to": <%= to([["hyphen", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -221,7 +200,7 @@
                     "from": <%= from("keypad_hyphen", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_hyphen", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -229,7 +208,7 @@
                     "from": <%= from("equal_sign", ["control"], ["any"]) %>,
                     "to": <%= to([["equal_sign", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -237,7 +216,7 @@
                     "from": <%= from("keypad_plus", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -245,7 +224,7 @@
                     "from": <%= from("slash", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_plus", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -253,7 +232,7 @@
                     "from": <%= from("0", ["control"], ["any"]) %>,
                     "to": <%= to([["0", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
                 },
                 {
@@ -261,8 +240,178 @@
                     "from": <%= from("keypad_0", ["control"], ["any"]) %>,
                     "to": <%= to([["keypad_0", ["left_command"]]]) %>,
                     "conditions": [
-                        <%= frontmost_application_if(["browser"]) %>
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ]
+                }
+            ]
+        },
+        {
+            "description": "Shift insert",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("insert", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Sonos controls",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_increment", ["control"], []) %>,
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts change_volume --step 5"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_decrement", ["control"], []) %>,
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts change_volume --step -5"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_increment", ["control", "left_shift"], ["any"]) %>,
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts change_bass --step 1"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("volume_decrement", ["control", "left_shift"], ["any"]) %>,
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts change_bass --step -1"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("play_or_pause", ["control"], ["any"]) %>,
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts play_pause"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "consumer_key_code": "scan_next_track",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts next"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": {
+                        "consumer_key_code": "scan_previous_track",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": {
+                        "shell_command": "/opt/homebrew/bin/sonosscripts previous"
+                    },
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Shift insert",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("insert", ["left_shift"], ["any"]) %>,
+                    "to": <%= to([["v", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_if(["terminal"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Flameshot shortcuts",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": <%= from("print_screen", [], ["any"]) %>,
+                    "to": [
+                        {
+                          "key_code": "keypad_4",
+                          "modifiers": [
+                            "left_command",
+                            "left_shift",
+                            "left_option"
+                          ]
+                        }
+                    ],
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ]
+                }
+            ]
+        },
+        {
+            "description": "Map ⇧⌘4 to ⇧⌘⌥4",
+            "manipulators": [
+                {
+                "type": "basic",
+                "from": {
+                    "key_code": "4",
+                    "modifiers": {
+                    "mandatory": [
+                        "left_shift",
+                        "left_command"
+                    ]
+                    }
+                },
+                "to": [
+                    {
+                    "key_code": "4",
+                    "modifiers": [
+                        "left_command",
+                        "left_shift",
+                        "left_option"
+                    ]
+                    }
+                ]
                 }
             ]
         }
