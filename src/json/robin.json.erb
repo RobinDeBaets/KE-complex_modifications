@@ -2,7 +2,7 @@
     "title": "Robin's Personal Azerty Shortcuts",
     "rules": [
         {
-            "description": "Control A, C, V, X, F, S, N, Z, W, T",
+            "description": "Control A, C, V, X, F, S, N, Z, W, T, D, /",
             "manipulators": [
                 {
                     "type": "basic",
@@ -80,6 +80,22 @@
                     "type": "basic",
                     "from": <%= from("t", ["control"], ["any"]) %>,
                     "to": <%= to([["t", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("d", ["control"], ["any"]) %>,
+                    "to": <%= to([["d", ["left_command"]]]) %>,
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
+                    ]
+                },
+                {
+                    "type": "basic",
+                    "from": <%= from("keypad_slash", ["control"], ["any"]) %>,
+                    "to": <%= to([["keypad_slash", ["left_command"]]]) %>,
                     "conditions": [
                         <%= frontmost_application_unless(["remote_desktop", "virtual_machine", "terminal"]) %>
                     ]
